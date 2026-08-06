@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingState.classList.remove('hidden');
 
         try {
-            const response = await fetch('/api/underwrite', {
+            const response = await fetch('http://localhost:3000/api/underwrite', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
