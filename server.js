@@ -45,6 +45,7 @@ app.post('/api/underwrite', async (req, res) => {
       decision,
       riskLevel,
       estimatedPremium,
+      currency: 'NGN',
       timestamp: new Date().toISOString()
     });
   } catch (error) {
@@ -62,4 +63,4 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on port ${PORT}`);
-});s
+});
