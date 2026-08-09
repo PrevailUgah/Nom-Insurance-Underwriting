@@ -30,8 +30,8 @@
         </div>
 
         <div class="form-group">
-          <label for="replacementValue">Market Replacement Value ($)</label>
-          <input type="number" id="replacementValue" placeholder="e.g. 45000" required>
+          <label for="replacementValue">Market Replacement Value (₦)</label>
+          <input type="number" id="replacementValue" placeholder="e.g. 5000000" required>
         </div>
 
         <div class="form-group">
@@ -64,18 +64,24 @@
           <span>Premium Multiplier</span>
           <span id="multiplier" class="metric-value">--</span>
         </div>
+        <div class="metric-row">
+          <span>Calculated Premium</span>
+          <span id="calculatedPremium" class="metric-value">₦0.00</span>
+        </div>
       </div>
     </section>
   </main>
-  <script src="app.js"></script>
+
   <!-- AI Inactive Notification Modal -->
-<div id="aiModal" class="modal-overlay hidden">
-  <div class="modal-card">
-    <div class="modal-icon">⚠️</div>
-    <h3>Notice</h3>
-    <p>AI currently Inactive, fallback risk evaluator initialized.</p>
-    <button id="closeModalBtn" class="btn-submit">Continue to Evaluation</button>
+  <div id="aiModal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-icon">⚠️</div>
+      <h3>Notice</h3>
+      <p>AI currently Inactive, fallback risk evaluator initialized.</p>
+      <button id="closeModalBtn" class="btn-submit">Continue to Evaluation</button>
+    </div>
   </div>
-</div>
+
+  <script src="app.js"></script>
 </body>
 </html>
