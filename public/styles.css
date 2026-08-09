@@ -162,3 +162,24 @@ input:focus, select:focus {
   font-weight: 600;
   color: var(--text-main);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .dashboard-container {
+    grid-template-columns: 1fr; /* Stack panels vertically on mobile */
+    margin: 1rem auto;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
