@@ -1,84 +1,164 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+/* Modern Professional UI Theme */
+:root {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-border: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --radius: 12px;
 }
 
 body {
-  background-color: #f4f6f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  padding: 40px 20px;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
 }
 
-.container {
-  width: 100%;
-  max-width: 600px;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
+/* Header & Brand Banner */
 header {
-  margin-bottom: 25px;
-  text-align: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--bg-card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 header h1 {
-  font-size: 1.8rem;
-  color: #1a252c;
-  margin-bottom: 8px;
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-header p {
-  color: #6c757d;
-  font-size: 0.95rem;
+/* Main Dashboard Grid */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
+/* Glassmorphism Card Style */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Form Styling */
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
-.form-group label {
+label {
   display: block;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--bg-card-border);
+  background: #0f172a;
+  color: #fff;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Modern Primary Button */
+.btn-submit {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--primary);
+  color: #fff;
   font-weight: 600;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group select {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  background-color: #0066ff;
-  color: #ffffff;
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.2s transform 0.1s;
 }
 
-button:hover {
-  background-color: #0052cc;
+.btn-submit:hover {
+  background: var(--primary-hover);
 }
 
-.result-card {
-  margin-top: 30px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-left: 4px solid #0066ff;
-  border-radius: 6px;
+.btn-submit:active {
+  transform: scale(0.99);
+}
+
+/* Underwriting Badges */
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-low, .status-approved {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.badge-medium, .status-review {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+  border: 1px solid var(--warning);
+}
+
+.badge-high, .status-declined {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+/* Results Display */
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--bg-card-border);
+}
+
+.metric-value {
+  font-weight: 600;
+  color: var(--text-main);
 }
