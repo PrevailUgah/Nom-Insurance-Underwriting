@@ -16,6 +16,7 @@ const closeModalBtn = document.getElementById('closeModalBtn');
 const decisionBadge = document.getElementById('decisionBadge');
 const riskScoreEl = document.getElementById('riskScore');
 const multiplierEl = document.getElementById('multiplier');
+const premiumEl = document.getElementById('calculatedPremium');
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
@@ -100,25 +101,35 @@ function evaluateFallbackRisk(data) {
   // Determine Approval Status & Premium Multiplier
   let status = 'Approved';
   let badgeClass = 'status-approved';
-  let multiplier = '1.0x';
+  let multiplierVal = 1.0;
 
   if (riskScore >= 75) {
     status = 'Declined';
     badgeClass = 'status-declined';
-    multiplier = 'N/A';
+    multiplierVal = 0;
   } else if (riskScore >= 45) {
     status = 'Manual Review';
     badgeClass = 'status-review';
-    multiplier = '1.45x';
+    multiplierVal = 1.45;
   } else {
-    multiplier = (1 + (riskScore / 100) * 0.5).toFixed(2) + 'x';
+    multiplierVal = 1 + (riskScore / 100) * 0.5;
   }
+
+  // Base rate calculation (2% base rate * asset replacement value * risk multiplier)
+  const baseRate = 0.02;
+  const rawPremium = data.replacementValue * baseRate * multiplierVal;
+
+  // Format Premium to Nigerian Naira (₦)
+  const formattedPremium = status === 'Declined'
+    ? 'N/A'
+    : new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(rawPremium);
 
   return {
     riskScore,
     status,
     badgeClass,
-    multiplier,
+    multiplier: status === 'Declined' ? 'N/A' : `${multiplierVal.toFixed(2)}x`,
+    premium: formattedPremium,
   };
 }
 
@@ -151,5 +162,9 @@ function renderResults(result) {
 
   if (multiplierEl) {
     multiplierEl.textContent = result.multiplier;
+  }
+
+  if (premiumEl) {
+    premiumEl.textContent = result.premium;
   }
 }
