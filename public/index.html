@@ -3,44 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nom Insurance Underwriting</title>
+  <title>Nom Insurance | Underwriting Engine</title>
+  <!-- Modern Font Integration -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Nom Insurance Underwriting System</h1>
-      <p>Real-time Property & Casualty Risk Evaluation Engine</p>
-    </header>
 
-    <main>
-      <form id="underwriting-form">
+  <header>
+    <h1>Nom Underwriting System</h1>
+    <span class="badge badge-low">Engine Active</span>
+  </header>
+
+  <main class="dashboard-container">
+    <!-- Risk Input Panel -->
+    <section class="card">
+      <h2>Asset Underwriting Input</h2>
+      <form id="underwritingForm">
         <div class="form-group">
-          <label for="assetType">Asset Type</label>
-          <select id="assetType" name="assetType">
-            <option value="Property">Property / Real Estate</option>
-            <option value="Vehicle">Vehicle / Auto</option>
+          <label for="assetType">Asset Category</label>
+          <select id="assetType" required>
+            <option value="vehicle">Vehicle (Auto)</option>
+            <option value="property">Property (Real Estate)</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="assetValue">Replacement Value (₦)</label>
-          <input type="number" id="assetValue" name="assetValue" value="25000000" required>
+          <label for="replacementValue">Market Replacement Value ($)</label>
+          <input type="number" id="replacementValue" placeholder="e.g. 45000" required>
         </div>
 
         <div class="form-group">
-          <label for="claimsHistory">5-Year Claims History</label>
-          <input type="number" id="claimsHistory" name="claimsHistory" value="0" min="0" required>
+          <label for="assetAge">Asset Age (Years)</label>
+          <input type="number" id="assetAge" placeholder="e.g. 3" required>
         </div>
 
-        <button type="submit" id="submit-btn">Evaluate Risk</button>
-      </form>
+        <div class="form-group">
+          <label for="claimsHistory">5-Year Claims Count</label>
+          <input type="number" id="claimsHistory" placeholder="0" required>
+        </div>
 
-      <div id="result-card" class="result-card">
-        <p>Submit details above to view live risk analysis.</p>
+        <button type="submit" class="btn-submit">Evaluate Risk Profile</button>
+      </form>
+    </section>
+
+    <!-- Underwriting Output Panel -->
+    <section class="card">
+      <h2>Evaluation Output</h2>
+      <div id="results">
+        <div class="metric-row">
+          <span>Decision Status</span>
+          <span id="decisionBadge" class="badge status-approved">Pending</span>
+        </div>
+        <div class="metric-row">
+          <span>Calculated Risk Score</span>
+          <span id="riskScore" class="metric-value">-- / 100</span>
+        </div>
+        <div class="metric-row">
+          <span>Premium Multiplier</span>
+          <span id="multiplier" class="metric-value">--</span>
+        </div>
       </div>
-    </main>
-  </div>
+    </section>
+  </main>
 
   <script src="app.js"></script>
 </body>
