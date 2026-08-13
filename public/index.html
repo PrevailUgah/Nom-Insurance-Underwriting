@@ -3,82 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nom Insurance | Underwriting Engine</title>
-  <!-- Modern Font Integration -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Nom Insurance - AI Underwriting Portal</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="container">
+    <header>
+      <h1>Nom Insurance Underwriting Engine</h1>
+      <p>Automated Risk Evaluation & Premium Calculation</p>
+    </header>
 
-  <header>
-    <h1>Nom Underwriting System</h1>
-    <span class="badge badge-low">Engine Active</span>
-  </header>
+    <main class="grid-layout">
+      <!-- Input Form Card -->
+      <section class="card">
+        <h2>Customer & Asset Details</h2>
+        <form id="underwritingForm">
+          
+          <!-- Personal Identifiers -->
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="e.g. Jane Doe" required>
+          </div>
 
-  <main class="dashboard-container">
-    <!-- Risk Input Panel -->
-    <section class="card">
-      <h2>Asset Underwriting Input</h2>
-      <form id="underwritingForm">
-        <div class="form-group">
-          <label for="assetType">Asset Category</label>
-          <select id="assetType" required>
-            <option value="vehicle">Vehicle (Auto)</option>
-            <option value="property">Property (Real Estate)</option>
-          </select>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="e.g. jane@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="e.g. +234 800 000 0000" required>
+          </div>
+
+          <hr class="divider">
+
+          <!-- Asset & Risk Parameters -->
+          <div class="form-group">
+            <label for="assetType">Asset Category</label>
+            <select id="assetType" required>
+              <option value="Vehicle">Vehicle</option>
+              <option value="Property">Property</option>
+              <option value="Equipment">Commercial Equipment</option>
+              <option value="Electronics">Electronics</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="replacementValue">Replacement Value (NGN)</label>
+            <input type="number" id="replacementValue" placeholder="e.g. 500000" min="1000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="assetAge">Asset Age (Years)</label>
+            <input type="number" id="assetAge" placeholder="e.g. 2" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="claimsHistory">Claims Filed (Past 5 Years)</label>
+            <input type="number" id="claimsHistory" placeholder="e.g. 0" min="0" required>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-primary">Evaluate Quote</button>
+        </form>
+      </section>
+
+      <!-- Evaluation Output Card -->
+      <section class="card results-card">
+        <h2>Underwriting Result</h2>
+        
+        <div class="result-item">
+          <span>Decision:</span>
+          <span id="decisionBadge" class="badge status-pending">Pending</span>
         </div>
 
-        <div class="form-group">
-          <label for="replacementValue">Market Replacement Value (₦)</label>
-          <input type="number" id="replacementValue" placeholder="e.g. 5000000" required>
+        <div class="result-item">
+          <span>Risk Score:</span>
+          <strong id="riskScore">-- / 100</strong>
         </div>
 
-        <div class="form-group">
-          <label for="assetAge">Asset Age (Years)</label>
-          <input type="number" id="assetAge" placeholder="e.g. 3" required>
+        <div class="result-item">
+          <span>Risk Level:</span>
+          <strong id="multiplier">--</strong>
         </div>
 
-        <div class="form-group">
-          <label for="claimsHistory">5-Year Claims Count</label>
-          <input type="number" id="claimsHistory" placeholder="0" required>
+        <div class="result-item highlight">
+          <span>Calculated Premium:</span>
+          <h3 id="calculatedPremium">₦0.00</h3>
         </div>
+      </section>
+    </main>
+  </div>
 
-        <button type="submit" class="btn-submit">Evaluate Risk Profile</button>
-      </form>
-    </section>
-
-    <!-- Underwriting Output Panel -->
-    <section class="card">
-      <h2>Evaluation Output</h2>
-      <div id="results">
-        <div class="metric-row">
-          <span>Decision Status</span>
-          <span id="decisionBadge" class="badge status-approved">Pending</span>
-        </div>
-        <div class="metric-row">
-          <span>Calculated Risk Score</span>
-          <span id="riskScore" class="metric-value">-- / 100</span>
-        </div>
-        <div class="metric-row">
-          <span>Premium Multiplier</span>
-          <span id="multiplier" class="metric-value">--</span>
-        </div>
-        <div class="metric-row">
-          <span>Calculated Premium</span>
-          <span id="calculatedPremium" class="metric-value">₦0.00</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- AI Inactive Notification Modal -->
-  <div id="aiModal" class="modal-overlay hidden">
-    <div class="modal-card">
-      <div class="modal-icon">⚠️</div>
+  <!-- Inactive AI Modal -->
+  <div id="aiModal" class="modal hidden">
+    <div class="modal-content">
       <h3>Notice</h3>
-      <p>AI currently Inactive, fallback risk evaluator initialized.</p>
-      <button id="closeModalBtn" class="btn-submit">Continue to Evaluation</button>
+      <p>Backend API currently unreachable. Switching to offline algorithmic calculation engine.</p>
+      <button id="closeModalBtn" class="btn-secondary">Continue</button>
     </div>
   </div>
 
