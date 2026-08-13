@@ -47,6 +47,7 @@ async function handleFormSubmit(e) {
     showAiInactiveModal(() => {
       const evaluation = evaluateFallbackRisk(formData);
       renderResults(evaluation);
+      form.reset(); // Reset form on fallback
     });
   }
 }
@@ -101,13 +102,21 @@ async function runAiEvaluation(data) {
       });
 
       console.log('✅ Submission saved successfully to Neon DB. Record ID:', result.savedRecordId);
+      
+      // Improvement: Reset input fields after successfully saving quote
+      if (form) {
+        form.reset();
+      }
     } else {
       throw new Error(result.error || 'Underwriting calculation failed');
     }
   } catch (error) {
     console.error('Backend submission failed, falling back to local evaluation:', error);
     STATE.isAiActive = false;
-    showAiInactiveModal(() => renderResults(evaluateFallbackRisk(data)));
+    showAiInactiveModal(() => {
+      renderResults(evaluateFallbackRisk(data));
+      if (form) form.reset();
+    });
   }
 }
 
