@@ -110,6 +110,19 @@ app.post('/api/underwrite', async (req, res) => {
   }
 });
 
+// Admin Route: Retrieve all past underwriting submissions
+app.get('/api/underwritings', async (req, res) => {
+  try {
+    const result = await pool.query(
+      'SELECT * FROM customer_underwritings ORDER BY created_at DESC LIMIT 50;'
+    );
+    res.json({ success: true, count: result.rows.length, data: result.rows });
+  } catch (error) {
+    console.error('Fetch Error:', error);
+    res.status(500).json({ success: false, error: 'Failed to retrieve underwriting records' });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
