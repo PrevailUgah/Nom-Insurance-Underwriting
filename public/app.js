@@ -53,8 +53,8 @@ async function handleFormSubmit(e) {
  */
 async function runAiEvaluation(data) {
   try {
-    // Sends POST request to the Express server endpoint
-    const response = await fetch('/api/underwrite', {
+    // Sends POST request to your live Render backend
+    const response = await fetch('https://nom-insurance-backend.onrender.com/api/underwrite', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
