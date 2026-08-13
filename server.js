@@ -36,7 +36,13 @@ pool.connect((err, client, release) => {
 // -----------------------------------------------------------------------------
 app.post('/api/underwrite', async (req, res) => {
   try {
-    const { assetValue = 100000, claimsHistory = 0, assetType, assetAge } = req.body;
+    const { 
+      fullName = '', 
+      email = '', 
+      phoneNumber = '', 
+      assetValue = 100000, 
+      claimsHistory = 0 
+    } = req.body;
 
     // Server-side actuarial fallback logic
     let baseRate = 0.02;
@@ -56,6 +62,14 @@ app.post('/api/underwrite', async (req, res) => {
       riskLevel = 'Medium';
     }
 
+    // Save underwriting evaluation and contact details to Neon database
+    await pool.query(
+      `INSERT INTO evaluations 
+        (full_name, email, phone_number, asset_value, claims_history, decision, risk_level, estimated_premium)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      [fullName, email, phoneNumber, assetValue, claimsHistory, decision, riskLevel, estimatedPremium]
+    );
+
     const result = {
       success: true,
       decision,
@@ -64,15 +78,6 @@ app.post('/api/underwrite', async (req, res) => {
       currency: 'NGN',
       timestamp: new Date().toISOString()
     };
-
-    /* 
-    OPTIONAL: Save underwriting evaluation to Neon database
-    await pool.query(
-      `INSERT INTO evaluations (asset_value, claims_history, decision, risk_level, estimated_premium, created_at)
-       VALUES ($1, $2, $3, $4, $5, NOW())`,
-      [assetValue, claimsHistory, decision, riskLevel, estimatedPremium]
-    );
-    */
 
     return res.json(result);
   } catch (error) {
