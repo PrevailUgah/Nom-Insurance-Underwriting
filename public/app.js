@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', handleFormSubmit);
   }
+  
+  // Close modal button listener
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
 });
 
 /**
@@ -64,4 +70,95 @@ function showNotification(message, type = 'info') {
 /**
  * Main form submission handler
  */
-why is the premium not visible in the frontend?
+async function handleFormSubmit(event) {
+  event.preventDefault();
+  
+  // Prevent duplicate submissions
+  if (STATE.isAiActive) {
+    showNotification('Processing underwriting request...', 'warning');
+    return;
+  }
+
+  STATE.isAiActive = true;
+  
+  try {
+    // Collect form data
+    const formData = {
+      fullName: document.getElementById('fullName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      assetType: document.getElementById('assetType').value,
+      replacementValue: parseFloat(document.getElementById('replacementValue').value),
+      assetAge: parseInt(document.getElementById('assetAge').value),
+      claimsHistory: parseInt(document.getElementById('claimsHistory').value)
+    };
+
+    // Send to backend API
+    const response = await fetch('/api/underwrite', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (!response.ok) {
+      throw new Error('API request failed');
+    }
+
+    const result = await response.json();
+
+    if (result.success) {
+      // Update modal with results
+      document.getElementById('riskScore').textContent = result.riskLevel;
+      document.getElementById('multiplier').textContent = '1.0x'; // You can calculate this if needed
+      document.getElementById('calculatedPremium').textContent = `₦${result.estimatedPremium.toLocaleString()}`;
+      
+      // Update badge color based on decision
+      const badge = document.getElementById('decisionBadge');
+      if (result.decision === 'Approved') {
+        badge.className = 'text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full font-mono';
+        badge.textContent = 'Approved';
+      } else if (result.decision === 'Manual Review') {
+        badge.className = 'text-xs bg-amber-950 text-amber-400 border border-amber-800 px-2 py-0.5 rounded-full font-mono';
+        badge.textContent = 'Manual Review';
+      } else {
+        badge.className = 'text-xs bg-rose-950 text-rose-400 border border-rose-800 px-2 py-0.5 rounded-full font-mono';
+        badge.textContent = 'Declined';
+      }
+      
+      // Show the modal
+      openModal();
+      
+      // Show success notification
+      showNotification(`Underwriting complete - Record #${result.savedRecordId} saved.`, 'success');
+    } else {
+      showNotification('Underwriting processing failed. Please try again.', 'warning');
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
+    showNotification(`Error: ${error.message}`, 'warning');
+  } finally {
+    STATE.isAiActive = false;
+  }
+}
+
+/**
+ * Opens the modal displaying underwriting results
+ */
+function openModal() {
+  const modal = document.getElementById('aiModal');
+  if (modal) {
+    modal.classList.remove('hidden');
+  }
+}
+
+/**
+ * Closes the modal
+ */
+function closeModal() {
+  const modal = document.getElementById('aiModal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+}
