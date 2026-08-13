@@ -8,19 +8,24 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('public'));
 
-// Initialize PostgreSQL Connection Pool using Neon DATABASE_URL
+// Initialize PostgreSQL connection pool using Neon DATABASE_URL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false } // Required for Neon cloud connections
 });
 
-// Create database table on server startup if it doesn't exist
+// Automatically create database table on server startup if it doesn't exist
 async function initDb() {
   try {
     await pool.query(`
       CREATE TABLE IF NOT EXISTS customer_underwritings (
         id SERIAL PRIMARY KEY,
+        full_name VARCHAR(100),
+        email VARCHAR(100),
+        phone VARCHAR(50),
+        asset_type VARCHAR(50),
         asset_value NUMERIC,
+        asset_age INT,
         claims_history INT,
         decision VARCHAR(50),
         risk_level VARCHAR(50),
@@ -28,7 +33,7 @@ async function initDb() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `);
-    console.log('✅ Successfully connected to Neon database and schema verified.');
+    console.log('✅ Connected to Neon database and schema verified.');
   } catch (err) {
     console.error('❌ Database connection error:', err);
   }
@@ -39,33 +44,56 @@ initDb();
 // Underwriting API Route with DB Persistence
 app.post('/api/underwrite', async (req, res) => {
   try {
-    // Front-end sends replacementValue; fall back to assetValue if provided
-    const assetValue = Number(req.body.assetValue || req.body.replacementValue) || 100000;
-    const claimsHistory = Number(req.body.claimsHistory) || 0;
+    const {
+      fullName = '',
+      email = '',
+      phone = '',
+      assetType = 'Vehicle',
+      replacementValue = 100000,
+      assetAge = 0,
+      claimsHistory = 0
+    } = req.body;
+
+    const numericValue = Number(replacementValue) || 100000;
+    const numericClaims = Number(claimsHistory) || 0;
+    const numericAge = Number(assetAge) || 0;
 
     // Actuarial Fallback Logic
     let baseRate = 0.02;
-    if (claimsHistory > 2) baseRate += 0.015;
+    if (numericClaims > 2) baseRate += 0.015;
     
-    const estimatedPremium = Math.round(assetValue * baseRate);
+    const estimatedPremium = Math.round(numericValue * baseRate);
     
     let decision = 'Approved';
     let riskLevel = 'Low';
 
-    if (claimsHistory >= 3) {
+    if (numericClaims >= 3) {
       decision = 'Manual Review';
       riskLevel = 'High';
-    } else if (claimsHistory === 2) {
+    } else if (numericClaims === 2) {
       riskLevel = 'Medium';
     }
 
-    // Insert record into Neon PostgreSQL DB
+    // Insert evaluation record into Neon PostgreSQL DB
     const insertQuery = `
-      INSERT INTO customer_underwritings (asset_value, claims_history, decision, risk_level, estimated_premium)
-      VALUES ($1, $2, $3, $4, $5)
+      INSERT INTO customer_underwritings 
+        (full_name, email, phone, asset_type, asset_value, asset_age, claims_history, decision, risk_level, estimated_premium)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING id, created_at;
     `;
-    const dbResult = await pool.query(insertQuery, [assetValue, claimsHistory, decision, riskLevel, estimatedPremium]);
+    
+    const dbResult = await pool.query(insertQuery, [
+      fullName,
+      email,
+      phone,
+      assetType,
+      numericValue,
+      numericAge,
+      numericClaims,
+      decision,
+      riskLevel,
+      estimatedPremium
+    ]);
 
     res.json({
       success: true,
@@ -84,5 +112,5 @@ app.post('/api/underwrite', async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
