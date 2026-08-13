@@ -30,8 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
 async function handleFormSubmit(e) {
   e.preventDefault();
 
-  // Gather input parameters matching form IDs
+  // Gather all input parameters matching form IDs
   const formData = {
+    fullName: document.getElementById('fullName')?.value || '',
+    email: document.getElementById('email')?.value || '',
+    phone: document.getElementById('phone')?.value || '',
     assetType: document.getElementById('assetType')?.value || 'Vehicle',
     replacementValue: parseFloat(document.getElementById('replacementValue')?.value) || 0,
     assetAge: parseInt(document.getElementById('assetAge')?.value, 10) || 0,
