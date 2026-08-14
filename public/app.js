@@ -202,11 +202,15 @@ function displayUnderwritingResults(result, userEmail = '') {
   const premiumEl = document.getElementById('calculatedPremium');
   const badgeEl = document.getElementById('decisionBadge');
   const userEmailEl = document.getElementById('userSubmittedEmail');
+  const aiAnalysisTextEl = document.getElementById('aiAnalysisText');
 
   if (riskScoreEl) riskScoreEl.textContent = result.riskLevel || 'Low';
   if (multiplierEl) multiplierEl.textContent = result.multiplier || '1.0x';
   if (premiumEl) premiumEl.textContent = `₦${(result.estimatedPremium || 0).toLocaleString()}`;
   if (userEmailEl && userEmail) userEmailEl.textContent = userEmail;
+  if (aiAnalysisTextEl) {
+    aiAnalysisTextEl.textContent = result.aiAnalysis || 'Evaluated using Google Gemini AI risk assessment model.';
+  }
 
   if (badgeEl) {
     const decision = result.decision || 'Approved';
