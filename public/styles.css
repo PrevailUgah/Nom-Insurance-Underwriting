@@ -1,23 +1,72 @@
 /* ==========================================================================
-   Nom Insurance Underwriting - Custom Dark Blue Overrides
+   Nom Insurance Underwriting - Dark Blue Glassmorphism Design System
    ========================================================================== */
 
 /* Dark Blue Root Variables */
 :root {
   --bg-deep-blue: #0b132b;
   --bg-card-blue: #1c2541;
+  --bg-card-hover: #232e52;
   --border-blue: #3a506b;
   --accent-cyan: #4cc9f0;
   --accent-blue: #2563eb;
+  --accent-blue-hover: #3b82f6;
+  --glow-cyan: rgba(76, 201, 240, 0.35);
+  --glow-blue: rgba(37, 99, 235, 0.4);
 }
 
 /* Force dark blue background across the page */
 body {
   background-color: var(--bg-deep-blue) !important;
   color: #f8fafc !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* Ensure inputs and selects have dark blue backgrounds and bright text */
+/* Glassmorphism Card Style */
+.glass-card {
+  background: rgba(28, 37, 65, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(58, 80, 107, 0.6);
+  border-radius: 1rem;
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background: rgba(35, 46, 82, 0.85);
+  border-color: rgba(76, 201, 240, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px 0 var(--glow-cyan);
+}
+
+/* Pulsing Glowing Button Effect */
+.glow-button {
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px 0 var(--glow-blue);
+}
+
+.glow-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px 5px var(--glow-cyan), 0 10px 20px -5px rgba(37, 99, 235, 0.5);
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 50%, #4cc9f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Radial Hero Accent Glow */
+.hero-glow-bg {
+  background: radial-gradient(circle at 50% 20%, rgba(37, 99, 235, 0.18) 0%, rgba(76, 201, 240, 0.08) 35%, rgba(11, 19, 43, 0) 70%);
+}
+
+/* Input Fields & Selects */
 input, select {
   background-color: var(--bg-deep-blue) !important;
   color: #ffffff !important;
@@ -30,10 +79,9 @@ input::placeholder {
 
 input:focus, select:focus {
   border-color: var(--accent-cyan) !important;
-  box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.2) !important;
+  box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.25) !important;
 }
 
-/* Dropdown option background styling */
 select option {
   background-color: var(--bg-card-blue) !important;
   color: #ffffff !important;
