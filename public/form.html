@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,27 +10,32 @@
     <!-- Dark Blue Custom CSS Overrides -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#0b132b] text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+<body
+    class="bg-[#0b132b] text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col justify-between">
 
     <!-- Top Navigation Header -->
     <header class="border-b border-slate-800 bg-[#1c2541]/80 backdrop-blur-md sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center space-x-3 group">
-                <div class="w-9 h-9 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-                    N
-                </div>
-                <div>
-                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">NOM Underwriting System</span>
-                    <span class="block text-[10px] text-slate-400 font-mono leading-none">P&C Algorithmic Rating Engine</span>
-                </div>
+            <a href="index.html" class="group">
+                <span
+                    class="font-bold text-lg tracking-tight text-white group-hover:text-cyan-400 transition-colors">NOM
+                    Underwriting System</span>
+                <span class="block text-[10px] text-slate-400 font-mono leading-none">P&C Algorithmic Rating
+                    Engine</span>
             </a>
-            
+
             <div class="flex items-center space-x-6">
-                <a href="index.html" class="text-xs text-slate-300 hover:text-cyan-400 flex items-center space-x-1 transition-colors font-medium">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <a href="index.html"
+                    class="text-xs text-slate-300 hover:text-cyan-400 flex items-center space-x-1 transition-colors font-medium">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
                     <span>Back to Overview</span>
                 </a>
-                <span class="hidden md:flex items-center text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+                <span
+                    class="hidden md:flex items-center text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
                     Operational | Model v4.1
                 </span>
@@ -40,14 +46,19 @@
     <!-- Main Workspace Container -->
     <main class="max-w-5xl mx-auto px-4 py-10 flex-grow w-full">
         <!-- Form Header Header -->
-        <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
+        <div
+            class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
             <div>
-                <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">Underwriting Portal</span>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight mt-1">Property & Casualty Risk Evaluation</h1>
-                <p class="text-slate-400 text-sm mt-1">Submit insured asset parameters for real-time actuarial rating, risk classification, and premium calculation.</p>
+                <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">Underwriting
+                    Portal</span>
+                <h1 class="text-3xl font-extrabold text-white tracking-tight mt-1">Property & Casualty Risk Evaluation
+                </h1>
+                <p class="text-slate-400 text-sm mt-1">Submit insured asset parameters for real-time actuarial rating,
+                    risk classification, and premium calculation.</p>
             </div>
             <div>
-                <a href="index.html" class="inline-flex items-center text-xs text-slate-400 hover:text-slate-200 bg-slate-800/50 border border-slate-700/60 px-3 py-2 rounded-lg transition-colors">
+                <a href="index.html"
+                    class="inline-flex items-center text-xs text-slate-400 hover:text-slate-200 bg-slate-800/50 border border-slate-700/60 px-3 py-2 rounded-lg transition-colors">
                     <span>View System Specs</span>
                 </a>
             </div>
@@ -60,33 +71,43 @@
                     <!-- Section 1: Insured Party Details -->
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
-                            <h2 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
-                                <span class="w-5 h-5 rounded-full bg-blue-900/80 text-cyan-300 border border-blue-700 flex items-center justify-center text-[10px]">1</span>
+                            <h2
+                                class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
+                                <span
+                                    class="w-5 h-5 rounded-full bg-blue-900/80 text-cyan-300 border border-blue-700 flex items-center justify-center text-[10px]">1</span>
                                 Insured Entity Identification
                             </h2>
                             <span class="text-[11px] text-slate-400 font-mono">Step 1 of 2</span>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label for="fullName" class="block text-xs font-medium text-slate-300 mb-1">Full Corporate / Legal Name *</label>
-                                <input type="text" id="fullName" required placeholder="e.g. Apex Global Logistics Ltd" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                                <label for="fullName" class="block text-xs font-medium text-slate-300 mb-1">Full
+                                    Corporate / Legal Name *</label>
+                                <input type="text" id="fullName" required placeholder="e.g. Apex Global Logistics Ltd"
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                             </div>
                             <div>
-                                <label for="email" class="block text-xs font-medium text-slate-300 mb-1">Corporate Email Address *</label>
-                                <input type="email" id="email" required placeholder="risk@apexlogistics.com" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                                <label for="email" class="block text-xs font-medium text-slate-300 mb-1">Corporate Email
+                                    Address *</label>
+                                <input type="email" id="email" required placeholder="risk@apexlogistics.com"
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                             </div>
                         </div>
                         <div>
-                            <label for="phone" class="block text-xs font-medium text-slate-300 mb-1">Primary Contact Phone Number *</label>
-                            <input type="tel" id="phone" required placeholder="+234 (800) 123-4567" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                            <label for="phone" class="block text-xs font-medium text-slate-300 mb-1">Primary Contact
+                                Phone Number *</label>
+                            <input type="tel" id="phone" required placeholder="+234 (800) 123-4567"
+                                class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                         </div>
                     </div>
 
                     <!-- Section 2: Risk Exposure Profile -->
                     <div class="space-y-4 pt-4">
                         <div class="flex items-center justify-between border-b border-slate-700/60 pb-2">
-                            <h2 class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
-                                <span class="w-5 h-5 rounded-full bg-blue-900/80 text-cyan-300 border border-blue-700 flex items-center justify-center text-[10px]">2</span>
+                            <h2
+                                class="text-xs font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-2">
+                                <span
+                                    class="w-5 h-5 rounded-full bg-blue-900/80 text-cyan-300 border border-blue-700 flex items-center justify-center text-[10px]">2</span>
                                 Asset Exposure & Risk Profile
                             </h2>
                             <span class="text-[11px] text-slate-400 font-mono">Step 2 of 2</span>
@@ -94,8 +115,10 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label for="assetType" class="block text-xs font-medium text-slate-300 mb-1">Asset Classification *</label>
-                                <select id="assetType" required class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition-colors">
+                                <label for="assetType" class="block text-xs font-medium text-slate-300 mb-1">Asset
+                                    Classification *</label>
+                                <select id="assetType" required
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none transition-colors">
                                     <option value="" disabled selected>Select class...</option>
                                     <option value="Commercial Real Estate">Commercial Real Estate</option>
                                     <option value="Industrial Fleet">Industrial Fleet</option>
@@ -104,28 +127,40 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="replacementValue" class="block text-xs font-medium text-slate-300 mb-1">Total Insured Value (NGN ₦) *</label>
-                                <input type="number" id="replacementValue" required min="10000" step="1000" placeholder="50000000" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                                <label for="replacementValue"
+                                    class="block text-xs font-medium text-slate-300 mb-1">Total Insured Value (NGN ₦)
+                                    *</label>
+                                <input type="number" id="replacementValue" required min="10000" step="1000"
+                                    placeholder="50000000"
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label for="assetAge" class="block text-xs font-medium text-slate-300 mb-1">Asset Operational Age (Years) *</label>
-                                <input type="number" id="assetAge" required min="0" max="100" placeholder="4" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                                <label for="assetAge" class="block text-xs font-medium text-slate-300 mb-1">Asset
+                                    Operational Age (Years) *</label>
+                                <input type="number" id="assetAge" required min="0" max="100" placeholder="4"
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                             </div>
                             <div>
-                                <label for="claimsHistory" class="block text-xs font-medium text-slate-300 mb-1">Prior Claims Count (5-Year Window) *</label>
-                                <input type="number" id="claimsHistory" required min="0" max="50" placeholder="0" class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
+                                <label for="claimsHistory" class="block text-xs font-medium text-slate-300 mb-1">Prior
+                                    Claims Count (5-Year Window) *</label>
+                                <input type="number" id="claimsHistory" required min="0" max="50" placeholder="0"
+                                    class="w-full bg-[#0b132b] border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none transition-colors">
                             </div>
                         </div>
                     </div>
 
                     <!-- Submit Button -->
                     <div class="pt-4">
-                        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 glow-button transition-all flex items-center justify-center space-x-2 text-base">
+                        <button type="submit" id="submitBtn"
+                            class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-blue-600/30 glow-button transition-all flex items-center justify-center space-x-2 text-base">
                             <span>Execute Underwriting Calculation</span>
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
                         </button>
                     </div>
                 </form>
@@ -137,7 +172,9 @@
                 <div class="glass-card p-5 space-y-4">
                     <div class="flex items-center justify-between border-b border-slate-700/60 pb-3">
                         <h3 class="text-xs font-bold uppercase tracking-wider text-slate-200">Actuarial Parameters</h3>
-                        <span class="text-[10px] bg-blue-950 text-blue-400 border border-blue-800 px-2 py-0.5 rounded font-mono">Engine v4.1</span>
+                        <span
+                            class="text-[10px] bg-blue-950 text-blue-400 border border-blue-800 px-2 py-0.5 rounded font-mono">Engine
+                            v4.1</span>
                     </div>
                     <ul class="text-xs space-y-2.5 text-slate-400">
                         <li class="flex justify-between border-b border-slate-800/80 pb-2">
@@ -159,40 +196,39 @@
                     </ul>
                 </div>
 
-                <!-- Database Status Badge -->
-                <div class="glass-card p-5 space-y-3">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
-                        <h4 class="text-xs font-bold text-white uppercase tracking-wider">Neon Database Sync</h4>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Evaluations are automatically persisted to Neon PostgreSQL cloud infrastructure with instant audit logging.
-                    </p>
-                </div>
+
             </div>
         </div>
     </main>
 
     <!-- Modal Output Overlay -->
-    <div id="aiModal" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
-        <div class="glass-card max-w-md w-full p-6 shadow-2xl space-y-5 border border-slate-600 relative overflow-hidden">
+    <div id="aiModal"
+        class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50 hidden">
+        <div
+            class="glass-card max-w-md w-full p-6 shadow-2xl space-y-5 border border-slate-600 relative overflow-hidden">
             <!-- Ambient Glow Background -->
             <div class="absolute -top-12 -right-12 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl"></div>
 
             <!-- Pop-up Success Header -->
             <div class="text-center space-y-2 border-b border-slate-700/60 pb-4">
-                <div class="w-14 h-14 rounded-full bg-emerald-950/90 border-2 border-emerald-400 flex items-center justify-center mx-auto shadow-xl shadow-emerald-500/20">
-                    <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                <div
+                    class="w-14 h-14 rounded-full bg-emerald-950/90 border-2 border-emerald-400 flex items-center justify-center mx-auto shadow-xl shadow-emerald-500/20">
+                    <svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                        </path>
+                    </svg>
                 </div>
                 <h3 class="font-black text-white text-xl tracking-tight">Submitted Successfully!</h3>
-                <p class="text-xs text-cyan-300 font-medium">Check your email for your premium score & underwriting summary.</p>
+                <p class="text-xs text-cyan-300 font-medium">Check your email for your premium score & underwriting
+                    summary.</p>
             </div>
-            
+
             <!-- Output Metrics -->
             <div class="space-y-3 font-mono text-sm bg-[#0b132b]/90 p-4 rounded-xl border border-slate-800">
                 <div class="flex justify-between items-center text-slate-300">
                     <span>Decision Status:</span>
-                    <span id="decisionBadge" class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full font-mono font-bold">Approved</span>
+                    <span id="decisionBadge"
+                        class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-3 py-1 rounded-full font-mono font-bold">Approved</span>
                 </div>
                 <div class="flex justify-between text-slate-300">
                     <span>Risk Rating Score:</span>
@@ -209,13 +245,20 @@
             </div>
 
             <!-- Email confirmation badge -->
-            <div class="p-3 bg-blue-950/60 rounded-xl border border-blue-800/60 flex items-center space-x-3 text-xs text-blue-200">
-                <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                <p>Detailed premium breakdown sent to <span id="userSubmittedEmail" class="font-bold text-white underline">your email</span>.</p>
+            <div
+                class="p-3 bg-blue-950/60 rounded-xl border border-blue-800/60 flex items-center space-x-3 text-xs text-blue-200">
+                <svg class="w-5 h-5 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                    </path>
+                </svg>
+                <p>Detailed premium breakdown sent to <span id="userSubmittedEmail"
+                        class="font-bold text-white underline">your email</span>.</p>
             </div>
 
             <div class="pt-1">
-                <button id="closeModalBtn" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold py-3 rounded-xl text-sm transition-all shadow-lg glow-button">
+                <button id="closeModalBtn"
+                    class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold py-3 rounded-xl text-sm transition-all shadow-lg glow-button">
                     Done / Close
                 </button>
             </div>
@@ -225,7 +268,7 @@
     <!-- Footer -->
     <footer class="border-t border-slate-800 bg-[#0b132b] py-6 text-center text-xs text-slate-500">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 Nom Insurance Group. Internal Property & Casualty Underwriting System.</p>
+            <p>&copy; 2026 Nom Technologies</p>
             <div class="flex space-x-4">
                 <a href="index.html" class="hover:text-slate-300 transition-colors">Home Landing Page</a>
                 <span>|</span>
@@ -237,4 +280,5 @@
     <!-- Client Script -->
     <script src="app.js"></script>
 </body>
+
 </html>

@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to NOM Underwriting System | Next-Gen P&C Risk Engine</title>
-    <meta name="description" content="Welcome to NOM Underwriting System - Automated Property & Casualty risk evaluation, actuarial rating, and instant policy quotes.">
+    <title>Welcome to NOM Underwriting System</title>
+    <meta name="description"
+        content="Welcome to NOM Underwriting System - Fast automated Property & Casualty risk scoring and instant policy quotes.">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Dark Blue Custom CSS Overrides -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-[#0b132b] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col justify-between hero-glow-bg">
+
+<body
+    class="bg-[#0b132b] text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white min-h-screen flex flex-col justify-between hero-glow-bg">
 
     <!-- Top Navigation Header -->
     <header class="border-b border-slate-800 bg-[#1c2541]/80 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="index.html" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 via-blue-500 to-cyan-400 rounded-xl flex items-center justify-center font-black text-xl text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform duration-300">
-                    N
-                </div>
-                <div>
-                    <span class="font-extrabold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">NOM Underwriting System</span>
-                    <span class="block text-[10px] text-slate-400 font-mono tracking-wider">Property & Casualty Risk Engine</span>
-                </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Name -->
+            <a href="index.html" class="group">
+                <span
+                    class="font-extrabold text-xl tracking-tight text-white group-hover:text-cyan-400 transition-colors">NOM
+                    Underwriting System</span>
+                <span class="block text-[10px] text-slate-400 font-mono tracking-wider">Property & Casualty Risk
+                    Engine</span>
             </a>
 
-            <!-- Navigation Links & Action Button -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#features" class="hover:text-cyan-400 transition-colors">Features</a>
-                <a href="#assets" class="hover:text-cyan-400 transition-colors">Coverage Assets</a>
-                <a href="#pipeline" class="hover:text-cyan-400 transition-colors">How It Works</a>
-            </nav>
-
+            <!-- Navigation Link & Action Button -->
             <div class="flex items-center space-x-4">
-                <span class="hidden lg:flex items-center text-xs font-mono text-slate-400 bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-700">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
-                    Operational
-                </span>
-
-                <!-- Insure Now Header CTA -->
-                <a href="form.html" id="headerInsureNowBtn" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm shadow-lg shadow-blue-600/30 glow-button transition-all flex items-center space-x-2">
+                <a href="#how-it-works"
+                    class="hidden sm:inline-block text-xs font-medium text-slate-300 hover:text-cyan-400 transition-colors mr-2">How
+                    It Works</a>
+                <a href="form.html" id="headerInsureNowBtn"
+                    class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm shadow-lg shadow-blue-600/30 glow-button transition-all flex items-center space-x-2">
                     <span>Insure Now</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 flex-grow w-full">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 flex-grow w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Left Hero Content -->
             <div class="lg:col-span-7 space-y-8 text-left">
-                <!-- Badge -->
-                <div class="inline-flex items-center space-x-2 bg-blue-950/80 border border-cyan-500/30 px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-300 shadow-inner">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                    <span>AUTOMATED RISK EVALUATION & RATING ENGINE v1.0.4</span>
+                <!-- Simple Status Pill -->
+                <div
+                    class="inline-flex items-center space-x-2 bg-blue-950/80 border border-cyan-500/30 px-3.5 py-1.5 rounded-full text-xs font-mono text-cyan-300">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span>AUTOMATED PROPERTY & CASUALTY RISK ENGINE</span>
                 </div>
 
                 <!-- Main Title requested by user -->
@@ -66,131 +64,155 @@
                     <span class="gradient-text">NOM Underwriting System</span>
                 </h1>
 
-                <!-- Subtitle -->
-                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
-                    Instant property and casualty risk scoring, algorithmic exposure rating, and automated policy premium quotes built for modern enterprise assets.
+                <!-- Clear, Simple Subtitle -->
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+                    Fast automated risk scoring and instant policy premium calculations for commercial properties and
+                    enterprise assets.
                 </p>
 
                 <!-- Action CTA Buttons -->
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
                     <!-- Insure Now Hero CTA Button -->
-                    <a href="form.html" id="heroInsureNowBtn" class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 hover:from-blue-500 hover:to-cyan-300 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-xl shadow-blue-600/40 glow-button transition-all text-center flex items-center justify-center space-x-3">
+                    <a href="form.html" id="heroInsureNowBtn"
+                        class="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 hover:from-blue-500 hover:to-cyan-300 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-xl shadow-blue-600/40 glow-button transition-all text-center flex items-center justify-center space-x-3">
                         <span>Insure Now</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
                     </a>
 
-                    <a href="form.html" class="bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 font-bold px-6 py-4 rounded-xl text-base transition-colors text-center flex items-center justify-center space-x-2">
-                        <span>Start Risk Evaluation</span>
+                    <a href="#how-it-works"
+                        class="bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 border border-slate-700 font-bold px-6 py-4 rounded-xl text-base transition-colors text-center flex items-center justify-center">
+                        <span>Learn How It Works</span>
                     </a>
-                </div>
-
-                <!-- Feature Pills -->
-                <div class="pt-4 flex flex-wrap gap-4 text-xs font-mono text-slate-400">
-                    <span class="flex items-center"><svg class="w-4 h-4 text-emerald-400 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Real-Time NGN Quotes</span>
-                    <span class="flex items-center"><svg class="w-4 h-4 text-emerald-400 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Neon DB Audit Logs</span>
-                    <span class="flex items-center"><svg class="w-4 h-4 text-emerald-400 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg> Dual Fallback Engine</span>
                 </div>
             </div>
 
-            <!-- Right Hero Card / Live Engine Preview -->
+            <!-- Right Hero Card / Simple Preview -->
             <div class="lg:col-span-5 relative">
-                <!-- Background Accent Blur -->
-                <div class="absolute -inset-1.5 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-2xl blur-lg opacity-40 animate-pulse"></div>
-
-                <div class="relative glass-card p-6 md:p-8 space-y-6 shadow-2xl border border-slate-700/80">
+                <div class="glass-card p-6 md:p-8 space-y-6 shadow-2xl border border-slate-700/80">
                     <div class="flex items-center justify-between border-b border-slate-700/80 pb-4">
                         <div class="flex items-center space-x-3">
                             <div class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></div>
-                            <h3 class="font-bold text-white text-base">Underwriting Calculation Demo</h3>
+                            <h3 class="font-bold text-white text-base">Instant Quote Calculation</h3>
                         </div>
-                        <span class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-1 rounded-full font-mono font-bold">LIVE PREVIEW</span>
+                        <span
+                            class="text-xs bg-emerald-950 text-emerald-400 border border-emerald-800 px-2.5 py-1 rounded-full font-mono font-bold">APPROVED</span>
                     </div>
 
-                    <!-- Card Body Metrics -->
-                    <div class="space-y-4 font-mono text-sm">
-                        <div class="p-3.5 bg-[#0b132b] rounded-lg border border-slate-800 space-y-2">
+                    <!-- Card Body -->
+                    <div class="space-y-4 text-sm">
+                        <div class="p-3.5 bg-[#0b132b] rounded-lg border border-slate-800 space-y-2 font-mono">
                             <div class="flex justify-between text-xs text-slate-400">
-                                <span>Insured Asset Class</span>
+                                <span>Asset Category</span>
                                 <span class="text-cyan-300 font-semibold">Commercial Real Estate</span>
                             </div>
                             <div class="flex justify-between text-xs text-slate-400">
-                                <span>Total Insured Value (TIV)</span>
+                                <span>Insured Asset Value</span>
                                 <span class="text-white font-bold">₦50,000,000</span>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3">
-                            <div class="p-3 bg-[#0b132b] rounded-lg border border-slate-800 text-center">
-                                <span class="block text-[10px] text-slate-400 uppercase">Actuarial Risk Score</span>
-                                <span class="text-lg font-bold text-emerald-400">LOW (32/100)</span>
-                            </div>
-                            <div class="p-3 bg-[#0b132b] rounded-lg border border-slate-800 text-center">
-                                <span class="block text-[10px] text-slate-400 uppercase">Decision Status</span>
-                                <span class="text-lg font-bold text-cyan-400">APPROVED</span>
-                            </div>
-                        </div>
-
-                        <div class="p-4 bg-gradient-to-r from-blue-950/80 to-slate-900 rounded-lg border border-blue-800/80 flex items-center justify-between">
+                        <div
+                            class="p-4 bg-gradient-to-r from-blue-950/80 to-slate-900 rounded-lg border border-blue-800/80 flex items-center justify-between">
                             <div>
-                                <span class="block text-xs text-slate-300 font-sans font-medium">Estimated Premium Quote</span>
-                                <span class="text-2xl font-black text-emerald-400">₦1,000,000</span>
+                                <span class="block text-xs text-slate-300 font-sans font-medium">Estimated
+                                    Premium</span>
+                                <span class="text-2xl font-black text-emerald-400 font-mono">₦1,000,000</span>
                             </div>
-                            <span class="text-[11px] text-blue-300 font-mono bg-blue-900/60 border border-blue-700 px-2 py-1 rounded">2.0% Base Rate</span>
+                            <span
+                                class="text-[11px] text-blue-300 font-mono bg-blue-900/60 border border-blue-700 px-2 py-1 rounded">Instant
+                                Quote</span>
                         </div>
                     </div>
 
-                    <!-- Insure Now Button inside preview card -->
-                    <a href="form.html" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all shadow-lg text-center block text-sm">
-                        Launch Live Insure Now Form &rarr;
+                    <!-- Insure Now CTA inside card -->
+                    <a href="form.html"
+                        class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl transition-all shadow-lg text-center block text-sm">
+                        Start Your Insure Now Quote &rarr;
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stat Highlights Strip -->
-    <section class="border-y border-slate-800 bg-[#1c2541]/40 py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div class="space-y-1">
-                <p class="text-3xl sm:text-4xl font-extrabold text-white gradient-text">₦25B+</p>
-                <p class="text-xs text-slate-400 uppercase font-mono tracking-wider">Underwritten Portfolio</p>
+    <!-- 3 Simple Steps Section -->
+    <section id="how-it-works" class="border-y border-slate-800 bg-[#1c2541]/40 py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            <div class="text-center space-y-3 max-w-xl mx-auto">
+                <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">Simple 3-Step
+                    Process</span>
+                <h2 class="text-3xl font-bold text-white tracking-tight">How Underwriting Works</h2>
+                <p class="text-slate-400 text-sm">Get your policy quote evaluation in under two minutes.</p>
             </div>
-            <div class="space-y-1">
-                <p class="text-3xl sm:text-4xl font-extrabold text-white gradient-text">&lt; 2.0s</p>
-                <p class="text-xs text-slate-400 uppercase font-mono tracking-wider">Calculation Latency</p>
-            </div>
-            <div class="space-y-1">
-                <p class="text-3xl sm:text-4xl font-extrabold text-white gradient-text">99.4%</p>
-                <p class="text-xs text-slate-400 uppercase font-mono tracking-wider">Actuarial Precision</p>
-            </div>
-            <div class="space-y-1">
-                <p class="text-3xl sm:text-4xl font-extrabold text-white gradient-text">100%</p>
-                <p class="text-xs text-slate-400 uppercase font-mono tracking-wider">Automated Audit Trail</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="glass-card p-6 space-y-3 text-center md:text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-blue-600 text-white font-black text-base flex items-center justify-center mx-auto md:mx-0 shadow-lg shadow-blue-500/30">
+                        1
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Fill Asset Form</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Enter your legal name, contact email, asset category, total replacement value, and prior claims
+                        count.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-card p-6 space-y-3 text-center md:text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-cyan-500 text-white font-black text-base flex items-center justify-center mx-auto md:mx-0 shadow-lg shadow-cyan-500/30">
+                        2
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Instant Risk Calculation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Our rating system evaluates asset age and exposure parameters to compute your risk level score.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-card p-6 space-y-3 text-center md:text-left">
+                    <div
+                        class="w-10 h-10 rounded-full bg-emerald-500 text-white font-black text-base flex items-center justify-center mx-auto md:mx-0 shadow-lg shadow-emerald-500/30">
+                        3
+                    </div>
+                    <h3 class="font-bold text-lg text-white">Get Instant Quote</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        View your calculated annual premium quote (NGN ₦) instantly on screen and receive email
+                        confirmation.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Coverage Asset Matrix Section -->
-    <section id="assets" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-12">
-        <div class="text-center space-y-3 max-w-2xl mx-auto">
-            <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">Underwriting Asset Matrix</span>
-            <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Supported Property & Casualty Classes</h2>
-            <p class="text-slate-400 text-sm">Select an asset classification below to start your instant underwriting quote evaluation.</p>
+    <!-- Simple Asset Categories Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-10">
+        <div class="text-center space-y-3 max-w-xl mx-auto">
+            <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">Asset
+                Categories</span>
+            <h2 class="text-3xl font-bold text-white tracking-tight">Select Asset To Insure</h2>
+            <p class="text-slate-400 text-sm">Choose your asset classification to launch the form submission page.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Asset Card 1 -->
             <div class="glass-card glass-card-hover p-6 space-y-4 flex flex-col justify-between">
                 <div class="space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
                         🏢
                     </div>
                     <h3 class="font-bold text-lg text-white">Commercial Real Estate</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        Office buildings, retail complexes, and commercial logistics hubs with structural risk indexing.
+                        Commercial buildings, warehouses, and office complexes.
                     </p>
                 </div>
-                <a href="form.html" class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
+                <a href="form.html"
+                    class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
                     <span>Insure Real Estate</span>
                     <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
@@ -199,15 +221,17 @@
             <!-- Asset Card 2 -->
             <div class="glass-card glass-card-hover p-6 space-y-4 flex flex-col justify-between">
                 <div class="space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
                         🚛
                     </div>
                     <h3 class="font-bold text-lg text-white">Industrial Fleet</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        Heavy freight vehicles, transport trucks, and industrial machinery portfolios.
+                        Transport vehicles, logistics trucks, and equipment.
                     </p>
                 </div>
-                <a href="form.html" class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
+                <a href="form.html"
+                    class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
                     <span>Insure Fleet</span>
                     <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
@@ -216,15 +240,17 @@
             <!-- Asset Card 3 -->
             <div class="glass-card glass-card-hover p-6 space-y-4 flex flex-col justify-between">
                 <div class="space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
                         🚢
                     </div>
                     <h3 class="font-bold text-lg text-white">Marine Cargo</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        International container shipments, sea freight, and transit cargo loss protection.
+                        International container shipments and ocean freight.
                     </p>
                 </div>
-                <a href="form.html" class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
+                <a href="form.html"
+                    class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
                     <span>Insure Cargo</span>
                     <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
@@ -233,15 +259,17 @@
             <!-- Asset Card 4 -->
             <div class="glass-card glass-card-hover p-6 space-y-4 flex flex-col justify-between">
                 <div class="space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-900/60 border border-blue-700/60 flex items-center justify-center text-2xl">
                         🖥️
                     </div>
                     <h3 class="font-bold text-lg text-white">Data Center Infra</h3>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        High-density server farms, cloud compute nodes, and mission-critical hardware arrays.
+                        Server hardware arrays and hosting compute nodes.
                     </p>
                 </div>
-                <a href="form.html" class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
+                <a href="form.html"
+                    class="pt-4 text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center space-x-1 group">
                     <span>Insure Infra</span>
                     <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
                 </a>
@@ -249,81 +277,43 @@
         </div>
     </section>
 
-    <!-- Pipeline Workflow Section -->
-    <section id="pipeline" class="border-t border-slate-800 bg-[#1c2541]/30 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-            <div class="text-center space-y-3 max-w-2xl mx-auto">
-                <span class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold">System Architecture</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Three-Step Underwriting Pipeline</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-6 space-y-3 relative">
-                    <span class="text-4xl font-black text-blue-500/40 font-mono">01</span>
-                    <h3 class="text-lg font-bold text-white">Input Asset Parameters</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Enter legal entity information, total replacement value (NGN), operational age, and 5-year claims history into the submission portal.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 space-y-3 relative">
-                    <span class="text-4xl font-black text-cyan-500/40 font-mono">02</span>
-                    <h3 class="text-lg font-bold text-white">Algorithmic Risk Scoring</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Our deterministic rating engine computes base rate factors, catastrophe loadings, and loss cost adjustments in real time.
-                    </p>
-                </div>
-
-                <div class="glass-card p-6 space-y-3 relative">
-                    <span class="text-4xl font-black text-emerald-500/40 font-mono">03</span>
-                    <h3 class="text-lg font-bold text-white">Instant Quote & Audit Sync</h3>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        Receive instant binding decisions (Approved / Manual Review / Declined), premium calculations, and automated Neon DB audit logging.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Call to Action Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="glass-card p-8 md:p-12 text-center space-y-6 relative overflow-hidden border border-cyan-500/30">
-            <div class="absolute -top-24 -right-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl"></div>
-
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Ready to Evaluate Asset Insurance?
+    <!-- Final Simple Banner -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="glass-card p-8 md:p-10 text-center space-y-6 relative overflow-hidden border border-cyan-500/30">
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">
+                Ready to Insure Your Property?
             </h2>
-            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">
-                Get instant actuarial rating and premium quotes for your commercial property & casualty portfolio in seconds.
+            <p class="text-slate-300 text-sm max-w-xl mx-auto">
+                Fill out the quick risk evaluation form to receive your premium quote in seconds.
             </p>
 
-            <div class="pt-2">
-                <a href="form.html" id="ctaInsureNowBtn" class="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 hover:from-blue-500 hover:to-cyan-300 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-xl shadow-blue-600/40 glow-button transition-all">
+            <div>
+                <a href="form.html" id="ctaInsureNowBtn"
+                    class="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-400 hover:from-blue-500 hover:to-cyan-300 text-white font-extrabold px-8 py-4 rounded-xl text-base shadow-xl shadow-blue-600/40 glow-button transition-all">
                     <span>Insure Now</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Clean Footer -->
     <footer class="border-t border-slate-800 bg-[#0b132b] py-8 text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center font-bold text-white text-xs">
-                    N
-                </div>
+        <div
+            class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
                 <span class="text-slate-300 font-semibold">NOM Underwriting System</span>
             </div>
-            <p>&copy; 2026 Nom Insurance Group. Property & Casualty Automated Underwriting.</p>
-            <div class="flex space-x-4">
-                <a href="form.html" class="text-cyan-400 hover:underline">Form Submission Portal</a>
-                <span>|</span>
-                <span class="text-slate-400">v1.0.4-PROD</span>
+            <p>&copy; 2026 Nom Technologies.</p>
+            <div>
+                <a href="form.html" class="text-cyan-400 hover:underline">Insure Now Portal &rarr;</a>
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>
