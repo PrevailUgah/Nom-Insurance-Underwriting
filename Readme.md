@@ -1,177 +1,176 @@
-# Nom Insurance — Underwriting System (Final Year Project)
+# NOM Underwriting System — System Setup & Architecture
 
-Nom Insurance Underwriting is a lightweight, standalone Property & Casualty (P&C) underwriting prototype built as a demonstration of automated risk scoring, premium estimation, and decision automation for academic evaluation. It combines a single-page front-end (Vanilla JS + HTML/CSS) with a small Node.js/Express backend. The system demonstrates two underwriting engines:
-
-- A Primary AI Engine (planned) that would use Google Gemini for contextual risk scoring.
-- A deterministic Actuarial Fallback Engine (implemented) that always runs when AI is not available.
-
-This project is intended as a proof-of-concept for automated underwriting pipelines, explainable fallback logic, and a clean UI for interacting with underwriting results.
-
-Table of Contents
-- What this is
-- Key features
-- Architecture & files
-- How the engines work (math & rules)
-- How to run (development & production)
-- API: contract & examples
-- Known limitations & academic evaluation notes
-- Future work & suggestions
-- Project grading checklist (for professor)
+**NOM Underwriting System** is an automated Property & Casualty (P&C) insurance underwriting platform built with a modern web frontend, an Express API backend, Google Gemini AI risk analysis, and cloud PostgreSQL database persistence.
 
 ---
 
-What this is
-One-paragraph summary: Nom Insurance is a teaching / research prototype showing how an underwriting pipeline might be constructed: a small Express server that exposes an underwriting endpoint and a responsive browser SPA that demonstrates client-side fallback underwriting logic and a modern UI for entering asset data. It is intended for demonstration and evaluation, not production use.
+## 🏗️ End-to-End Architecture Overview
 
-Key features
-- Dual-engine approach:
-  - Primary AI Engine (planned): uses Google Gemini generative API (dependency present in package.json) to produce structured risk output when configured.
-  - Deterministic Actuarial Fallback Engine: implemented both on the backend (a minimal fallback in server.js) and in the browser (client-side fallback in public/app.js) to guarantee consistent behavior without external AI keys.
-- Clean single-page UI implemented with Vanilla JavaScript, CSS Grid/Flexbox, semantic HTML.
-- Responsive design and clear risk/premium output (NGN currency formatting).
-- Simple, transparent risk scoring so graders can follow the logic and reproduce results.
-
-Stack
-- Languages: JavaScript (server + client), HTML, CSS
-- Runtime / framework: Node.js >=18, Express
-- Notable libs: express, cors, dotenv, @google/generative-ai (present, AI integration placeholder)
-
-Repository layout (top-level)
 ```
-Nom-Insurance-Underwriting/
-├── Readme.md               # Original README (reviewed)
-├── package.json            # Node.js metadata & scripts
-├── server.js               # Express server & fallback underwriting endpoint
-└── public/                 # Frontend SPA
-    ├── index.html          # UI
-    ├── styles.css          # Styling
-    └── app.js              # Client-side logic & fallback evaluator
+[ User Browser (Frontend UI) ]
+      │
+      │ 1. Form Submission (JSON Payload)
+      ▼
+[ Node.js / Express Server (server.js) ]
+      │
+      ├───▶ 2. Primary AI Engine: Google Gemini 1.5 Flash (Generates Risk Score, Decision & AI Rationale)
+      │        └─ (Automatic Fallback to Deterministic Actuarial Engine if API unconfigured)
+      │
+      └───▶ 3. Cloud Database: Neon PostgreSQL (Inserts Record into `evaluations` Table & Returns ID)
+      │
+      ▼
+[ Client Browser (Pop-up Output Modal + NGN Quote Display) ]
 ```
 
-How it fits together
-- Client (public/index.html + app.js) provides an input form for asset details and shows results on the same page.
-- The client currently uses an in-browser fallback evaluator (evaluateFallbackRisk in public/app.js) when the AI engine is inactive. The primary AI path is a placeholder.
-- The Express server exposes a POST /api/underwrite endpoint that includes a simple actuarial fallback implementation when no AI key is present. The SPA is served as static files by Express.
+---
 
-How the engines work (implementation detail—explainable)
-A. Client-side fallback (public/app.js)
-- Base score: 20
-- Age factor: +3 points per year of assetAge
-- Claims history: +18 points per claim (5-year claims count)
-- Replacement value thresholds:
-  - +15 if replacementValue > 100,000
-  - +8 if replacementValue > 50,000
-- Risk score clipped to 0–100
+## 🛠️ Step-by-Step Setup: Frontend to Database
 
-Decision mapping:
-- riskScore >= 75 → Declined, multiplier = 0 (no premium)
-- 45 <= riskScore < 75 → Manual Review, multiplier = 1.45
-- riskScore < 45 → Approved, multiplier = 1 + (riskScore / 100) * 0.5
+### 1. Frontend Layer (`public/`)
+- **Landing Page (`public/index.html`)**:
+  - Displays the platform overview, interactive asset matrix (Commercial Real Estate, Industrial Fleet, Marine Cargo, Data Center Infra), and **"Insure Now"** CTA buttons.
+- **Form Submission Portal (`public/form.html`)**:
+  - Captures Insured Entity Identification (Legal Name, Corporate Email, Phone Number).
+  - Captures Asset Risk Exposure Metrics (Asset Classification, Total Insured Value NGN, Operational Age, 5-Year Claims History).
+- **Client Script (`public/app.js`)**:
+  - Intercepts form submission and constructs the JSON payload.
+  - Sends a `POST` request to `/api/underwrite`.
+  - Displays the result pop-up modal showing **Decision Status** (Approved / Manual Review / Declined), **Risk Score**, **Multiplier**, **Estimated Premium (₦)**, and **Gemini AI Rationale**.
+  - Includes a client-side actuarial fallback calculator if the network or API is offline.
+- **Styling (`public/styles.css`)**:
+  - Custom dark blue glassmorphism theme built on Tailwind CSS, glowing button states, and dark input field controls.
 
-Premium calculation:
-- baseRate = 0.02 (2% of replacement value)
-- premium = replacementValue * baseRate * multiplier
-- Currency formatting: Nigerian Naira (NGN) when shown
+---
 
-B. Server-side fallback (server.js)
-- Reads formData.assetValue (fallback to 100000) and formData.claimsHistory
-- baseRate = 0.02
-- If claimsHistory > 2, adds 0.015 to base rate (i.e., baseRate += 0.015)
-- estimatedPremium = round(assetValue * baseRate)
-- Decision mapping:
-  - claimsHistory >= 3 → Manual Review
-  - claimsHistory === 2 → Medium risk
-  - else → Approved
-- Returns:
-  {
-    success: true,
-    decision,
-    riskLevel,
-    estimatedPremium,
-    currency: 'NGN',
-    timestamp
-  }
+### 2. Backend API Layer (`server.js`)
+- **Server Framework**: Node.js >=18 with Express.
+- **Middleware**: `cors()` for cross-origin requests, `express.json()` for parsing incoming JSON bodies, and `express.static('public')` for serving frontend files.
+- **Parameter Normalization**: Standardizes request payload properties (`replacementValue` / `assetValue`, `phone` / `phoneNumber`) to ensure seamless data mapping.
 
-Note: There is a slight mismatch in field names between client (replacementValue) and server (assetValue). See "Notes & suggestions" below.
+---
 
-How to run (quick start)
-1. Clone & install
+### 3. AI Intelligence Engine Layer (Google Gemini API)
+- **SDK**: `@google/generative-ai` (`gemini-1.5-flash` model).
+- **Environment Configuration**: Key configured in `.env` as `GEMINI_API_KEY`.
+- **Underwriting Evaluation**:
+  - Receives asset metrics and prompts Gemini AI to act as a senior actuarial underwriter.
+  - Generates structured JSON output containing `decision`, `riskLevel`, `riskScore`, `multiplier`, `estimatedPremium`, and `aiAnalysis` (1-2 sentence risk rationale).
+- **Graceful Fallback**: If `GEMINI_API_KEY` is not set or API limits are reached, the server automatically executes deterministic actuarial rating math:
+  - Base Rate: `2.0% (0.02)` of Total Insured Value.
+  - Claims Surcharge: Adds `+1.5%` base rate if claims > 2.
+  - Manual Review: Triggered if prior claims count &ge; 3.
+
+---
+
+### 4. Cloud Database Layer (Neon PostgreSQL)
+- **Database Service**: Neon Serverless PostgreSQL.
+- **Driver**: `pg` Pool instance with SSL connection (`sslmode=require`).
+- **Connection String**: Configured in `.env` as `DATABASE_URL`.
+- **Database Schema (`evaluations` Table)**:
+
+```sql
+CREATE TABLE IF NOT EXISTS evaluations (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(50),
+  asset_value NUMERIC(15, 2) NOT NULL,
+  claims_history INT NOT NULL DEFAULT 0,
+  decision VARCHAR(100) NOT NULL,
+  risk_level VARCHAR(100) NOT NULL,
+  estimated_premium NUMERIC(15, 2) NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+- **Persistence Execution**:
+  - Every evaluation is inserted via SQL:
+    ```sql
+    INSERT INTO evaluations 
+      (full_name, email, phone_number, asset_value, claims_history, decision, risk_level, estimated_premium)
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    RETURNING id;
+    ```
+  - Returns the auto-generated record ID (`savedRecordId`) to the frontend for audit logging.
+
+---
+
+## 📡 API Contract Reference
+
+### Endpoint
+`POST /api/underwrite`
+
+### Request Body (JSON)
+```json
+{
+  "fullName": "Acme Logistics Ltd",
+  "email": "risk@acme.com",
+  "phone": "+234 (800) 123-4567",
+  "assetType": "Commercial Real Estate",
+  "replacementValue": 50000000,
+  "assetAge": 3,
+  "claimsHistory": 1
+}
+```
+
+### Response Body (JSON)
+```json
+{
+  "success": true,
+  "decision": "Approved",
+  "riskLevel": "Low",
+  "riskScore": 18,
+  "multiplier": "1.0x",
+  "estimatedPremium": 1000000,
+  "currency": "NGN",
+  "isAiEvaluated": true,
+  "aiAnalysis": "Low risk profile based on 3-year asset operational age and clean prior claims record.",
+  "savedRecordId": 89651,
+  "timestamp": "2026-08-14T05:00:25.828Z"
+}
+```
+
+---
+
+## 🚀 How to Run Locally
+
+### 1. Installation
 ```bash
 git clone https://github.com/PrevailUgah/Nom-Insurance-Underwriting.git
 cd Nom-Insurance-Underwriting
 npm install
 ```
 
-2. Environment
-Create a `.env` file (or set environment vars). Example:
-```
+### 2. Configure Environment (`.env`)
+Create a `.env` file in the root directory:
+```env
 PORT=3000
-GEMINI_API_KEY=           # Optional; if set, the project intends to use Google Gemini (AI integration is placeholder)
+GEMINI_API_KEY=your_google_gemini_api_key_here
+DATABASE_URL=postgresql://username:password@ep-host.aws.neon.tech/neondb?sslmode=require
 ```
 
-3. Development
+### 3. Start Server
 ```bash
-npm run dev   # uses nodemon (if installed globally) or run `node server.js`
-# or
 npm start
+# or for development
+npm run dev
 ```
-Open http://localhost:3000 in a browser.
+Open **http://localhost:3000** in your browser.
 
-API: /api/underwrite
-- Endpoint: POST /api/underwrite
-- Content-Type: application/json
-- Current server expects fields:
-  - assetValue (number, e.g., 500000)
-  - claimsHistory (integer, e.g., 0)
-  - (optionally) assetType, assetAge — server logic ignores these currently, they are used in client fallback
+---
 
-Example curl (server-side endpoint):
-```bash
-curl -X POST http://localhost:3000/api/underwrite \
-  -H "Content-Type: application/json" \
-  -d '{"assetValue":500000,"claimsHistory":1,"assetType":"vehicle"}'
+## 📂 Repository Structure
 ```
-
-Example response (server fallback):
-```json
-{
-  "success": true,
-  "decision": "Approved",
-  "riskLevel": "Low",
-  "estimatedPremium": 10000,
-  "currency": "NGN",
-  "timestamp": "2026-08-09T..."
-}
+Nom-Insurance-Underwriting/
+├── Readme.md               # Complete System Setup & Architecture Documentation
+├── package.json            # Node.js dependencies & scripts
+├── server.js               # Express API server, Gemini AI integration & Neon DB persistence
+├── .env                    # Environment variables (Git-ignored)
+├── .gitignore              # Git ignore rules
+└── public/                 # Static web application files
+    ├── index.html          # Landing Page
+    ├── form.html           # Risk Evaluation Form Portal
+    ├── styles.css          # Dark Blue Glassmorphism Stylesheet
+    ├── app.js              # Client logic & modal handler
+    └── nom_logo.png        # Brand emblem asset
 ```
-
-Known limitations (for academic honesty)
-- The AI primary engine is a placeholder: the repo includes @google/generative-ai, but no active model invocation logic is implemented. A running Gemini API key is required for the intended AI flow.
-- Field name mismatch: front-end uses `replacementValue` while the backend expects `assetValue`. Aligning these is recommended.
-- No persistent storage: evaluations are not saved to a database.
-- No comprehensive validation or security hardening (CORS is enabled broadly).
-- No unit/integration tests included.
-
-Future work & recommended improvements
-- Implement AI request/response pipeline with structured schema validation & model response verification.
-- Unify client/server field naming and centralize evaluation logic (to avoid duplicate, divergent logic).
-- Add persistence (e.g., PostgreSQL) for auditability and result history.
-- Add tests (Jest / supertest) and CI pipeline.
-- Add Dockerfile and a simple deployment manifest for easier reproducible grading.
-
-Project grading checklist (for professor)
-- Dual-engine design demonstrated (AI planned + deterministic fallback: ✔)
-- Frontend SPA with input and result display (✔)
-- Deterministic fallback calculations are documented and reproducible (✔)
-- Server exposes an API endpoint for underwriting (✔)
-- Code is readable and well-structured for a prototype (✔)
-- Limitations and future work documented (✔)
-
-References
-- public/app.js — client fallback logic & risk math
-- server.js — server fallback endpoint
-- package.json — dependencies & scripts
-
-If you would like, I can:
-- Add this README to the repository (create/commit) for you.
-- Implement the Gemini API call or align input fields between client/server.
-- Add a short demo script or test cases you can run during your presentation.
