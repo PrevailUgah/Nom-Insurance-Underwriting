@@ -160,5 +160,5 @@ Formulate an official actuarial decision. Return ONLY a valid JSON object with n
 
 // Start Server
 app.listen(PORT, () => {
-  console.log(`🚀 NOM Underwriting System running on http://localhost:${PORT}`);
+  console.log(`🚀 GoTrust Underwriting System running on http://localhost:${PORT}`);
 });

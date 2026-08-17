@@ -1,6 +1,8 @@
-# NOM Underwriting System — System Setup & Architecture
+# GoTrust Underwriting System — System Setup & Architecture
 
-**NOM Underwriting System** is an automated Property & Casualty (P&C) insurance underwriting platform built with a modern web frontend, an Express API backend, Google Gemini AI risk analysis, and cloud PostgreSQL database persistence.
+🌐 **Live Deployment / Hosted Demo**: [https://nom-insurance-backend.onrender.com](https://nom-insurance-backend.onrender.com)
+
+**GoTrust Underwriting System** is an automated Property & Casualty (P&C) insurance underwriting platform built with a modern web frontend, an Express API backend, Google Gemini AI risk analysis, and cloud PostgreSQL database persistence.
 
 ---
 
@@ -97,8 +99,9 @@ CREATE TABLE IF NOT EXISTS evaluations (
 
 ## 📡 API Contract Reference
 
-### Endpoint
-`POST /api/underwrite`
+### Endpoints
+- **Live Hosted Endpoint**: `POST https://nom-insurance-backend.onrender.com/api/underwrite`
+- **Local Endpoint**: `POST http://localhost:3000/api/underwrite`
 
 ### Request Body (JSON)
 ```json

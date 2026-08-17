@@ -104,3 +104,39 @@ select option {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-cyan);
 }
+
+/* ==========================================================================
+   GoTrust Brand Identity Styles
+   ========================================================================== */
+.gotrust-badge {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.15);
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.gotrust-badge:hover {
+  background: #ffffff;
+  border-color: rgba(245, 158, 11, 0.7);
+  box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.25);
+}
+
+.gotrust-go {
+  color: #d97706;
+  font-weight: 900;
+}
+
+.gotrust-trust {
+  color: #000000;
+  font-weight: 900;
+}
+
+.verified-tick-icon {
+  color: #f59e0b;
+  fill: currentColor;
+}
+
