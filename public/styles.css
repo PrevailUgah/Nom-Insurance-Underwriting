@@ -106,23 +106,38 @@ select option {
 }
 
 /* ==========================================================================
-   GoTrust Brand Identity Styles
+   GoTrust Brand Identity Styles & Animations
    ========================================================================== */
+@keyframes gotrustZoomInOut {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.18);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 10px 28px 0 rgba(245, 158, 11, 0.45);
+  }
+}
+
 .gotrust-badge {
   background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.5);
+  box-shadow: 0 4px 14px 0 rgba(245, 158, 11, 0.18);
   display: inline-flex;
   align-items: center;
   border-radius: 0.75rem;
   padding: 0.25rem 0.75rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  animation: gotrustZoomInOut 2.5s ease-in-out infinite;
+  will-change: transform;
 }
 
 .gotrust-badge:hover {
   background: #ffffff;
-  border-color: rgba(245, 158, 11, 0.7);
-  box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.8);
+  animation-play-state: paused;
+  transform: scale(1.12);
+  box-shadow: 0 12px 32px 0 rgba(245, 158, 11, 0.5);
 }
 
 .gotrust-go {
@@ -139,4 +154,5 @@ select option {
   color: #f59e0b;
   fill: currentColor;
 }
+
 
