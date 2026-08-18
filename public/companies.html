@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoTrust — Select Underwriting Partner</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Dark Blue Custom CSS Overrides -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="nom_logo.png">
+</head>
+
+<body
+    class="bg-[#0b132b] text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800 bg-[#1c2541]/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <!-- Brand Logo & Name -->
+            <a href="index.html" class="group flex items-center gap-2">
+                <!-- Verified Badge Icon -->
+                <svg class="w-6 h-6 text-amber-400 fill-current shrink-0" viewBox="0 0 24 24" aria-label="Verified">
+                    <path
+                        d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.79-4-4-4-.495 0-.965.084-1.4.238C14.55 2.475 13.18 1.6 11.6 1.6c-1.58 0-2.95.875-3.6 2.148-.435-.154-.905-.238-1.4-.238-2.21 0-4 1.79-4 4 0 .495.084.965.238 1.4C1.575 9.55.7 10.92.7 12.5c0 1.58.875 2.95 2.148 3.6-.154.435-.238.905-.238 1.4 0 2.21 1.79 4 4 4 .495 0 .965-.084 1.4-.238 1.35 1.273 2.72 2.148 4.3 2.148 1.58 0 2.95-.875 3.6-2.148.435.154.905.238 1.4.238 2.21 0 4-1.79 4-4 0-.495-.084-.965-.238-1.4 1.273-1.35 2.148-2.72 2.148-4.3zm-11.4 4.1l-4.2-4.2 1.4-1.4 2.8 2.8 6.8-6.8 1.4 1.4-8.2 8.2z" />
+                </svg>
+
+                <div>
+                    <span class="font-bold text-lg tracking-tight">
+                        <span style="color: #fbbf24;">Go</span><span style="color: #ffffff;">Trust</span>
+                    </span>
+                    <span class="block text-[10px] text-slate-400 font-mono leading-none">P&C Algorithmic Rating
+                        Engine</span>
+                </div>
+            </a>
+
+            <div class="flex items-center space-x-6">
+                <a href="index.html"
+                    class="text-xs text-slate-300 hover:text-cyan-400 flex items-center space-x-1 transition-colors font-medium">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 py-12 flex-grow w-full">
+        <!-- Section Header -->
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span
+                class="text-xs uppercase font-mono tracking-widest text-cyan-400 font-semibold bg-cyan-950/60 border border-cyan-800/80 px-3 py-1 rounded-full">
+                Underwriting Partners
+            </span>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mt-3">
+                Choose Your Insurance Provider
+            </h1>
+            <p class="text-slate-400 text-sm mt-2">
+                Select an accredited Nigerian insurer below to run algorithmic risk rating and calculate instant
+                coverage premiums.
+            </p>
+        </div>
+
+        <!-- Insurance Providers Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Card 1: Leadway Assurance -->
+            <div
+                class="glass-card glass-card-hover p-6 flex flex-col justify-between border border-slate-700/60 rounded-xl relative overflow-hidden group">
+                <!-- High-Visibility Watermark Text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+                    <span
+                        class="text-5xl font-black font-mono uppercase tracking-widest text-cyan-400/20 -rotate-12 whitespace-nowrap group-hover:text-cyan-300/30 transition-colors drop-shadow-md">
+                        COMING SOON
+                    </span>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-700 flex items-center justify-center font-bold text-cyan-400 text-xl font-mono">
+                            LA
+                        </div>
+                        <span
+                            class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                            A+ Rated
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Leadway Assurance</h3>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                            One of Nigeria's premier insurers specializing in commercial property, marine, casualty, and
+                            corporate risk underwriting.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Commercial & Industrial Fleet
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> High-Value Asset Rating
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 relative z-10">
+                    <a href="form.html?provider=Leadway"
+                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2.5 rounded-lg text-xs transition-all shadow-lg glow-button flex items-center justify-center space-x-2">
+                        <span>Insure with Leadway</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2: AIICO Insurance -->
+            <div
+                class="glass-card glass-card-hover p-6 flex flex-col justify-between border border-slate-700/60 rounded-xl relative overflow-hidden group">
+                <!-- High-Visibility Watermark Text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+                    <span
+                        class="text-5xl font-black font-mono uppercase tracking-widest text-cyan-400/20 -rotate-12 whitespace-nowrap group-hover:text-cyan-300/30 transition-colors drop-shadow-md">
+                        COMING SOON
+                    </span>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-700 flex items-center justify-center font-bold text-cyan-400 text-xl font-mono">
+                            AI
+                        </div>
+                        <span
+                            class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                            Top Market Share
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">AIICO Insurance Plc</h3>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                            A market leader in corporate asset coverage, offering general P&C rating engine integration.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Real Estate & Infrastructure
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Rapid Claims Processing
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 relative z-10">
+                    <a href="form.html?provider=AIICO"
+                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2.5 rounded-lg text-xs transition-all shadow-lg glow-button flex items-center justify-center space-x-2">
+                        <span>Insure with AIICO</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3: AXA Mansard -->
+            <div
+                class="glass-card glass-card-hover p-6 flex flex-col justify-between border border-slate-700/60 rounded-xl relative overflow-hidden group">
+                <!-- High-Visibility Watermark Text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+                    <span
+                        class="text-5xl font-black font-mono uppercase tracking-widest text-cyan-400/20 -rotate-12 whitespace-nowrap group-hover:text-cyan-300/30 transition-colors drop-shadow-md">
+                        COMING SOON
+                    </span>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-700 flex items-center justify-center font-bold text-cyan-400 text-xl font-mono">
+                            AX
+                        </div>
+                        <span
+                            class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                            Global Backing
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">AXA Mansard Insurance</h3>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                            Global standards aligned with local expertise, providing actuarial risk modeling for data
+                            centers and marine cargo.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Data Infrastructure
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Marine Cargo Specialization
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 relative z-10">
+                    <a href="form.html?provider=AXAMansard"
+                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2.5 rounded-lg text-xs transition-all shadow-lg glow-button flex items-center justify-center space-x-2">
+                        <span>Insure with AXA Mansard</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4: Custodian Investment -->
+            <div
+                class="glass-card glass-card-hover p-6 flex flex-col justify-between border border-slate-700/60 rounded-xl relative overflow-hidden group">
+                <!-- High-Visibility Watermark Text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+                    <span
+                        class="text-5xl font-black font-mono uppercase tracking-widest text-cyan-400/20 -rotate-12 whitespace-nowrap group-hover:text-cyan-300/30 transition-colors drop-shadow-md">
+                        COMING SOON
+                    </span>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-700 flex items-center justify-center font-bold text-cyan-400 text-xl font-mono">
+                            CI
+                        </div>
+                        <span
+                            class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                            High Solvency
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Custodian Insurance</h3>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                            Trusted indigenous insurer with strong solvency reserves across non-life asset portfolios.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Commercial Real Estate
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Enterprise Asset Protection
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 relative z-10">
+                    <a href="form.html?provider=Custodian"
+                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2.5 rounded-lg text-xs transition-all shadow-lg glow-button flex items-center justify-center space-x-2">
+                        <span>Insure with Custodian</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 5: Cornerstone Insurance -->
+            <div
+                class="glass-card glass-card-hover p-6 flex flex-col justify-between border border-slate-700/60 rounded-xl relative overflow-hidden group">
+                <!-- High-Visibility Watermark Text -->
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+                    <span
+                        class="text-5xl font-black font-mono uppercase tracking-widest text-cyan-400/20 -rotate-12 whitespace-nowrap group-hover:text-cyan-300/30 transition-colors drop-shadow-md">
+                        COMING SOON
+                    </span>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-950/80 border border-blue-700 flex items-center justify-center font-bold text-cyan-400 text-xl font-mono">
+                            CS
+                        </div>
+                        <span
+                            class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded-full">
+                            ISO Certified
+                        </span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white">Cornerstone Insurance</h3>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                            Innovators in algorithmic P&C underwriting, offering conventional and specialized risk
+                            coverage.
+                        </p>
+                    </div>
+                    <ul class="text-xs text-slate-300 space-y-1.5 font-mono pt-2 border-t border-slate-800">
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Algorithmic Premium Discounts
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-cyan-400">✓</span> Comprehensive Non-Life
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 relative z-10">
+                    <a href="form.html?provider=Cornerstone"
+                        class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-2.5 rounded-lg text-xs transition-all shadow-lg glow-button flex items-center justify-center space-x-2">
+                        <span>Insure with Cornerstone</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-[#0b132b] py-6 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2026 GoTrust</p>
+            <div class="flex space-x-4">
+                <a href="index.html" class="hover:text-slate-300 transition-colors">Home Landing Page</a>
+                <span>|</span>
+                <span class="text-slate-400">v1.0.4-PROD</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
