@@ -94,7 +94,6 @@ function logout() {
 if (accessToken && adminPasskey) {
   document.getElementById('gate').classList.add('hidden');
   document.getElementById('dashboard').classList.remove('hidden');
-  // we still need to know the email – optional
   loadApplications();
 }
 

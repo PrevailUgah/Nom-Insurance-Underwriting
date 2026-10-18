@@ -1,24 +1,139 @@
-<!-- inside the companies section -->
-<div id="companiesContainer" class="grid ... your existing grid classes ..."></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Companies - GoTrust Underwriting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #0a1628;
+            color: #e2e8f0;
+        }
+        .glass {
+            background: rgba(15, 30, 60, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+    <!-- Header -->
+    <header class="glass border-b border-blue-900/40 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-xl font-bold text-blue-400 flex items-center gap-2">GoTrust</a>
+        <nav class="flex items-center gap-6 text-sm">
+            <a href="index.html" class="text-slate-300 hover:text-blue-400 transition">Home</a>
+            <a href="form.html" class="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 font-semibold text-white transition">Get Insured</a>
+        </nav>
+    </header>
 
-<script>
-async function loadPublicCompanies() {
-  const res = await fetch('/api/companies');
-  const data = await res.json();
-  if (!data.success) return;
+    <!-- Main Content -->
+    <main class="flex-1 max-w-6xl mx-auto px-4 py-12 w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-extrabold text-blue-400 mb-3">Our Underwriting Partners</h1>
+            <p class="text-slate-400 max-w-xl mx-auto">Explore our network of trusted, highly-rated P&C insurance and reinsurance partners backing your assets.</p>
+        </div>
 
-  const container = document.getElementById('companiesContainer');
-  container.innerHTML = data.companies.map(c => `
-    <div class="... your existing card classes ...">
-      ${c.is_coming_soon ? '<span class="...">COMING SOON</span>' : ''}
-      <div class="...">${c.short_code || ''}</div>
-      <div class="...">${c.rating || ''}</div>
-      <h3>${c.name}</h3>
-      <p>${c.description || ''}</p>
-      <ul>${(c.specialties || []).map(s => `<li>✓ ${s}</li>`).join('')}</ul>
-      <a href="form.html" class="...">Insure with ${c.name.split(' ')[0]}</a>
-    </div>
-  `).join('');
-}
-document.addEventListener('DOMContentLoaded', loadPublicCompanies);
-</script>
+        <div id="companiesContainer" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Rendered dynamically or via fallback -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-blue-900/40 py-6 text-center text-xs text-slate-500">
+        &copy; 2026 GoTrust Underwriting System. All rights reserved.
+    </footer>
+
+    <script>
+        const fallbackCompanies = [
+            {
+                name: "Nom Reinsurance PLC",
+                short_code: "NR",
+                rating: "A+ Rated",
+                description: "Primary institutional reinsurer providing high-capacity treaty backing for commercial assets and industrial fleets.",
+                specialties: ["Treaty Reinsurance", "Industrial Fleets", "Commercial Real Estate"],
+                is_coming_soon: false
+            },
+            {
+                name: "Leadway Assurance Partner",
+                short_code: "LW",
+                rating: "A Rated",
+                description: "Trusted property and casualty underwriter specializing in large-scale infrastructure and cargo protection.",
+                specialties: ["Marine Cargo", "Data Center Infra", "Property P&C"],
+                is_coming_soon: false
+            },
+            {
+                name: "AIICO Risk Solutions",
+                short_code: "AI",
+                rating: "A+ Rated",
+                description: "Leading risk underwriting partner offering comprehensive actuarial coverage and rapid claims settlement.",
+                specialties: ["Commercial Real Estate", "Liability Protection", "Actuarial Backing"],
+                is_coming_soon: false
+            },
+            {
+                name: "Custodian Underwriters Syndicate",
+                short_code: "CS",
+                rating: "AA- Rated",
+                description: "Specialized risk syndicate delivering bespoke coverage structures for high-value corporate portfolios.",
+                specialties: ["Enterprise Risk", "High-Value Assets", "Energy & Power"],
+                is_coming_soon: false
+            },
+            {
+                name: "Continental P&C Re",
+                short_code: "CPR",
+                rating: "A Rated",
+                description: "Pan-African reinsurance provider supporting robust underwriting frameworks across multiple asset classes.",
+                specialties: ["Cross-Border Risk", "Infrastructure", "Casualty"],
+                is_coming_soon: true
+            }
+        ];
+
+        function renderCompanies(list) {
+            const container = document.getElementById('companiesContainer');
+            if (!list || list.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 glass rounded-2xl">No partner companies currently available.</div>`;
+                return;
+            }
+
+            container.innerHTML = list.map(c => `
+                <div class="glass rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden border border-blue-500/20 hover:border-blue-500/50 transition">
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-lg text-blue-200">${c.name} <span class="text-xs px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 border border-blue-700/50">${c.short_code || ''}</span></h3>
+                            ${c.rating ? `<span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-900/60 text-emerald-300 border border-emerald-700/50">${c.rating}</span>` : ''}
+                        </div>
+                        <p class="text-sm text-slate-300 mb-4 leading-relaxed">${c.description || 'Verified institutional risk underwriting partner.'}</p>
+                        ${c.specialties && c.specialties.length > 0 ? `
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                ${c.specialties.map(s => `<span class="text-xs px-2 py-0.5 rounded bg-slate-900/80 text-slate-300 border border-slate-700">${s}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                    <div class="pt-4 border-t border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+                        <span>${c.is_coming_soon ? '🚧 Coming Soon' : '✅ Active Partner'}</span>
+                        <a href="form.html" class="text-blue-400 hover:underline font-medium">Request Quote →</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        async function loadCompanies() {
+            try {
+                const res = await fetch('/api/companies');
+                const data = await res.json();
+                if (res.ok && data.companies && data.companies.length > 0) {
+                    renderCompanies(data.companies);
+                } else {
+                    renderCompanies(fallbackCompanies);
+                }
+            } catch (err) {
+                // Fallback to hardcoded list if API fails or table is empty
+                renderCompanies(fallbackCompanies);
+            }
+        }
+
+        loadCompanies();
+    </script>
+</body>
+</html>
